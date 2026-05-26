@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { fetchLoans, createLoan, returnLoan } from '../api/loans';
 

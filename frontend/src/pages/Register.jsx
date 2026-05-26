@@ -1,12 +1,13 @@
+import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { register } from '../api/auth';
 
 function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '', confirmPassword: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const navigate = useNavigate();
+  const publicBase = import.meta.env.PROD ? '/Siquiejvel' : '';
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -33,7 +34,7 @@ function Register() {
       localStorage.setItem('role', data.user.role);
       localStorage.setItem('email', data.user.email);
       setSuccess('Registro completado. Redirigiendo al panel...');
-      setTimeout(() => navigate('/'), 500);
+      window.location.assign(`${publicBase}/`);
     } catch (err) {
       setError(err.response?.data?.message || 'No se pudo completar el registro');
     }
@@ -43,6 +44,9 @@ function Register() {
     <div className="auth-page">
       <form className="auth-form" onSubmit={handleSubmit}>
         <h1>Crear cuenta</h1>
+        <p className="auth-helper-text">
+          Crea tu cuenta con el email y la contraseña que tú elijas; no necesitas que nadie te la asigne.
+        </p>
         <label>
           Nombre
           <input name="name" value={form.name} onChange={handleChange} required />
@@ -62,6 +66,9 @@ function Register() {
         {error && <div className="error-box">{error}</div>}
         {success && <div className="success-box">{success}</div>}
         <button type="submit">Registrarse</button>
+        <p className="auth-note">
+          ¿Ya tienes cuenta? <Link to="/login" className="auth-link">Inicia sesión</Link>
+        </p>
       </form>
     </div>
   );

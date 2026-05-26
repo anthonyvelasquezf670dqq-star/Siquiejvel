@@ -1,16 +1,17 @@
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
-  const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
   const email = localStorage.getItem('email');
+  const publicBase = import.meta.env.PROD ? '/Siquiejvel' : '';
 
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     localStorage.removeItem('email');
-    navigate('/login');
+    window.location.assign(`${publicBase}/login`);
   };
 
   return (

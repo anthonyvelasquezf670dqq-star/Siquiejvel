@@ -353,6 +353,32 @@ table.data-table tbody tr:hover {
   color: #1e5f2b;
 }
 
+.auth-note {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.auth-helper-text {
+  margin: 0 0 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  background: rgba(122, 62, 28, 0.08);
+  color: var(--ink);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.auth-link {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
 .book-details {
   padding: 1.4rem;
   margin-bottom: 1rem;

@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OwnLibrary</title>
-    <script type="module" crossorigin src="/Siquiejvel/assets/index-DL_6vmby.js"></script>
-    <link rel="stylesheet" crossorigin href="/Siquiejvel/assets/index-CvSzoVoY.css">
+    <script type="module" crossorigin src="/Siquiejvel/assets/index-DzkiCT7R.js"></script>
+    <link rel="stylesheet" crossorigin href="/Siquiejvel/assets/index-DjkRdkOg.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+
+        if (redirect && redirect !== '/Siquiejvel/') {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </body>
 </html>
